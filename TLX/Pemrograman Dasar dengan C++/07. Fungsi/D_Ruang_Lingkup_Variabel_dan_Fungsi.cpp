@@ -4,26 +4,25 @@ using namespace std;
 int jantan[4] = {0, 10, 50, 60};
 int betina[4] = {7, 80, 9, 40};
 
-int selisih(int a, int b) {
-    if (a > b) {
-        return ...;
+int biaya(int total_bebek) {
+    int harga_bebek;
+    if (total_bebek < 10) {
+        harga_bebek = 100000;
+    } else if (total_bebek <= 50) {
+        harga_bebek = 75000;
     } else {
-        return ...;
+        harga_bebek = 50000;
     }
+
+    return harga_bebek * total_bebek;
 }
 
-int denda_pada_hari(int hari) {
-    return ... * selisih(..., ...);
-}
-
-int total_denda() {
-    int total = 0;
-    for (int i = 0; i < 4; i++) {
-        total += denda_pada_hari(...);
-    }
-    return total;
+int biaya_jantan_dan_betina(int hari) {
+    return biaya(jantan[hari]) + biaya(betina[hari]);
 }
 
 int main() {
-    cout << total_denda() << endl;
+    for (int i = 0; i < 4; i++) {
+        cout << biaya_jantan_dan_betina(i) << endl;
+    }
 }
